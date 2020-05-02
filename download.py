@@ -28,16 +28,15 @@ def change_extension(path):
 @click.option('--file', default=None,  help='path file with links to download ig live')
 @click.option('--output', default=os.path.join(os.getcwd(),"output"),  help='folder to save join video')
 def read_file_with_link(file, output):
-    with open(file, encoding="utf-8") as links:
+    import csv
+    with open(file, encoding="utf-8") as __file:
+        links = csv.reader(__file, delimiter=',')
         for pos , row in enumerate(links):
-        
-           data_url = urlparse.urlparse(urlparse.unquote(row)).query
+           data_url = urlparse.urlparse(urlparse.unquote(row[0])).query
            paths = data_url.split('file_v=')[1].split('&file_a=')
-           join_folder = os.path.join(output, "join")           
-           join_video = os.path.join(join_folder,  str(pos) + "_video.mp4")
+           join_video = os.path.join(output,  row[1] + ".mp4")
            file_video = download(paths[0], output)
            file_audio = change_extension(download(paths[1], output))
-           validate_folder(join_folder)           
            join_audio_and_video(file_audio, file_video, join_video)
            os.remove(file_video)
            os.remove(file_audio)

@@ -13,7 +13,7 @@ Descargar [Ffmpeg](https://www.ffmpeg.org/) y agregar la carpeta bin al path
 
 ## Como obtener los link
 1. Ver el live con la extension y presionar en download y despues "Get Downloader", el antivirus lo va a bloquer, pero van a descargas y copian el link desde donde intento descargarlo.
-2. El link lo copian en un archivo, como en el ejemplo (links.txt)
+2. El link lo copian en un archivoy  y seperado por coma escribe el nombre del archivo de salida, como en el ejemplo (links.txt)
 3. Pueden agregar la cantidad de link que deseen. 
 
 ## Ejecutar 
